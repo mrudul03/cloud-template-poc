@@ -32,6 +32,18 @@ Parameters:
     Default: 'ami-33e4bc49'
 
 Resources:
+  {% set ec2list= [['1', 'keyname1', 'instanceType1'], ['2', 'keyname2', 'instanceType2']] %}
+  {% for ec2 in ec2list %}
+    {% for elem in ec2 %}
+      Ec2Instance-{{ elem }}
+    {% endfor %}
+  {% endfor %}
+  
+  {% for ec2 in ec2list %}
+      Ec2Instance-{{ ec2[0] }}
+  {% endfor %}
+
+
   {% for i in range (1, ec2count) %}
   Ec2Instance-{{environmentName}}-{{i}}:
     Type: AWS::EC2::Instance

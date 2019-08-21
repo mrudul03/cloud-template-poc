@@ -29,7 +29,6 @@ public class TemplateService {
 			context.put("keyName", templateResource.getEc2Resource().getKeyName());
 			context.put("instanceType", templateResource.getEc2Resource().getInstanceType());
 			context.put("subnetId", templateResource.getEc2Resource().getSubnetId());
-	
 			String fileName = templateResource.getTemplatePath()+templateResource.getTemplateName();
 			File file = new File(fileName);
 			String templateContent = Files.toString(file, Charsets.UTF_8);
